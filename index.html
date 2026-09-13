@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f4f3ef"><title>STRANGE HIGH // SPINOUT</title>
+<style>
+:root{--bg:#f4f3ef;--ink:#111;--line:#cfcfc8;--acid:#b8ff34}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif}a{color:inherit}
+.head{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--line);background:rgba(244,243,239,.96)}
+.brand{font-weight:900;text-decoration:none;letter-spacing:-.04em}main{max-width:1440px;margin:auto}
+.hero{min-height:72vh;padding:8vw 6vw 5vw;border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end}
+.eyebrow{font:700 11px/1 monospace;letter-spacing:.12em}h1{font-size:clamp(62px,11vw,180px);line-height:.78;letter-spacing:-.075em;margin:24px 0;max-width:12ch}
+.lead{font-size:clamp(18px,2.2vw,32px);line-height:1.15;max-width:720px}.meta{display:flex;justify-content:space-between;margin-top:46px;font:700 11px/1 monospace}
+.episodes{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}.card{min-height:68vh;padding:28px;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between}
+.card:last-child{border-right:0}.card h2{font-size:clamp(56px,7vw,108px);letter-spacing:-.07em;line-height:.8;margin:0}.music{font:700 12px/1.2 monospace;margin-top:16px}
+.summary{font-size:16px;line-height:1.35;max-width:32ch}.status{font:700 11px/1 monospace;display:flex;gap:8px;align-items:center}.dot{width:9px;height:9px;border-radius:50%;background:#bbb}.review .dot{background:var(--acid)}
+.section{padding:70px 6vw;border-bottom:1px solid var(--line)}.labgrid{display:grid;grid-template-columns:repeat(4,1fr);margin-top:34px;border-top:1px solid var(--line);border-left:1px solid var(--line)}.labgrid article{padding:28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:180px}.labgrid p{font:700 12px/1.5 monospace;margin-top:40px}
+.row{display:grid;grid-template-columns:90px 1fr 110px 110px;gap:20px;padding:18px 0;border-top:1px solid var(--line);font:700 12px/1.2 monospace}
+footer{padding:18px 20px;display:flex;justify-content:space-between;font:700 10px/1 monospace}
+@media(max-width:800px){.hero{min-height:76svh;padding:90px 20px 28px}h1{font-size:21vw}.lead{font-size:19px}.episodes{grid-template-columns:1fr}.card{min-height:72svh;border-right:0;border-bottom:1px solid var(--line);padding:24px 20px}.card h2{font-size:26vw}.section{padding:56px 20px}.labgrid{grid-template-columns:1fr 1fr}.row{grid-template-columns:54px 1fr 80px}.row span:last-child{display:none}}
+</style>
+</head><body>
+<header class="head"><a class="brand" href="#">STRANGE HIGH // SPINOUT</a><span>ARCHIVE</span></header>
+<main><section class="hero"><p class="eyebrow">BATTLE FILMS / MUSIC / MOTION STUDIES</p><h1>NO STORY.<br>JUST IMPACT.</h1>
+<p class="lead">『ストレンジ・ハイ』の戦闘表現だけを切り出したスピンアウト。完成データと制作履歴をここに集約する。</p>
+<div class="meta"><span>FORMAT / TAP + FILM</span><span>BUILD / 0.2.1</span></div></section>
+<section id="episodes" class="episodes"></section>
+<section class="section"><p class="eyebrow">PRODUCTION LAB</p><div class="labgrid">
+<article><b>CAMERA</b><p>LOW ANGLE / POV / TELEPHOTO / DEAD STOP</p></article>
+<article><b>MOTION</b><p>CASINGS / DEBRIS / SLASH / IMPACT / ARMOR BREAK</p></article>
+<article><b>SOUND</b><p>TRACK-LED EDITING / IMPACT SYNC / SILENCE AS CUT</p></article>
+<article><b>RULE</b><p>NO LAZY ZOOM / NO EVEN DENSITY / NO EXPLANATORY CLUTTER</p></article>
+</div></section>
+<section class="section"><p class="eyebrow">ARCHIVE / PROCESS</p><div id="archive"></div></section></main>
+<footer><span>STRANGE HIGH // SPINOUT</span><span>MANIFEST READY</span></footer>
+<script>
+const m={"project": "STRANGE HIGH // SPINOUT", "version": "0.2.1", "updated_at": "2026-09-13T13:40:00+09:00", "episodes": [{"id": "gun", "number": "01", "title": "GUN", "music": "The Prodigy — Firestarter", "status": "review", "version": "v01", "summary": "超望遠狙撃、近未来スコープ、SR、一発ずつの射撃、薬莢と巨大火器の物量設計。"}, {"id": "sword", "number": "02", "title": "SWORD", "music": "Bring Me The Horizon — Kingslayer", "status": "planning", "version": "v00", "summary": "槍／ソード系の近接。速度差、静止、軌跡、画面外への飛び出しを主役にする。"}, {"id": "fight", "number": "03", "title": "FIGHT", "music": "Bring Me The Horizon — Teardrops", "status": "planning", "version": "v00", "summary": "素手格闘。戦闘進行に合わせて鎧が打撃で段階破壊される。"}]};
+const esc=s=>String(s??'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
+document.querySelector('#episodes').innerHTML=m.episodes.map(e=>`<article class="card"><span class="eyebrow">${esc(e.number)}</span><div><h2>${esc(e.title)}</h2><p class="music">${esc(e.music)}</p></div><div><p class="summary">${esc(e.summary)}</p><div class="status ${esc(e.status)}"><span class="dot"></span>${esc(e.status.toUpperCase())} / ${esc(e.version)}</div></div></article>`).join('');
+document.querySelector('#archive').innerHTML=m.episodes.map(e=>`<div class="row"><span>${esc(e.number)}</span><span>${esc(e.title)}</span><span>${esc(e.status.toUpperCase())}</span><span>${esc(e.version)}</span></div>`).join('');
+</script></body></html>
